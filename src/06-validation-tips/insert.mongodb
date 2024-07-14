@@ -1,0 +1,7 @@
+use("store")
+db.users.insertOne({
+  email: 'nico@mail.com',
+  password: 'Aza12345s1',
+  role: 'admin',
+  rrss: ['x', 'Facebook']
+})

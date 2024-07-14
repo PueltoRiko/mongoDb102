@@ -1,0 +1,9 @@
+use("store")
+db.products.insertOne({
+  name: 'Camiseta',
+  sizes: ['L', 'XL'],
+  category: {
+    name: 'new category',
+    image: 'url'
+  }
+})
