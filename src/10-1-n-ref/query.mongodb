@@ -1,0 +1,45 @@
+use("store")
+db.orders.find()
+db.orders.find({ userId: ObjectId('669447e243f968f717518df4') }).count()
+
+
+db.orders.find({ userId: ObjectId('669447e243f968f717518df4') })
+db.users.findOne({ _id: ObjectId('669447e243f968f717518df4') })
+
+// Traer los datos de usuario desde la orden
+db.orders.aggregate([
+  {
+    $match: {
+      _id: ObjectId('66944dcfaae21483ab9a077f')
+    }
+  },
+  {
+    $lookup: {
+      // consultar en collección
+      from: 'users',
+      // ¿aquí con cuál se enlaza?
+      localField: 'userID',
+      // ¿enlace allá?
+      foreignField: 'id',
+      // ¿Cómo llamar a la consulta?
+      as: 'user'
+    }
+  }
+])
+
+// Traer las ordenes desde el usuario
+db.users.aggregate([
+  {
+    $match: {
+      _id: ObjectId('6694483ff6f207de09836311')
+    }
+  },
+  {
+    $lookup: {
+      from: 'orders',
+      localField: '_id',
+      foreignField: 'userId',
+      as: 'orders'
+    }
+  }
+])

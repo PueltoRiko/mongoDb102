@@ -1,0 +1,19 @@
+use("store")
+
+db.products.find()
+db.stores.find()
+
+
+// Product: 66945bcc53ce9991b76e5c04
+// Store: 66945d92e6371eb974f9b98c
+
+db.products.aggregate([
+  {
+    $lookup: {
+      from: 'stores',
+      localField: 'stores_ids',
+      foreignField: '_id',
+      as: 'stores'
+    }
+  }
+])

@@ -1,0 +1,17 @@
+use("store")
+db.users.insertOne({
+  email: 'zuly@mail.com',
+  password: 'Aza12345s1',
+  role: 'customer',
+  rrss: ['IG', 'Facebook'],
+  address: {
+    street: 'cr 82891',
+    city: 'Cali',
+    zip: '11011'
+  },
+  shipping_address: {
+    street: 'cr 223 12',
+    city: 'Cali',
+    zip: '13011'
+  }
+})

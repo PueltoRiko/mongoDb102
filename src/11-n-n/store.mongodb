@@ -1,0 +1,19 @@
+use('store')
+
+db.stores.insertMany([
+  {
+    name: 'Store Max',
+    products_ids: [
+      ObjectId('66945bcc53ce9991b76e5c03'),
+      ObjectId('66945bcc53ce9991b76e5c05')
+    ]
+  },
+  {
+    name: 'Store Plus',
+    products_ids: [
+      ObjectId('66945bcc53ce9991b76e5c03'),
+      ObjectId('66945bcc53ce9991b76e5c04'),
+      ObjectId('66945bcc53ce9991b76e5c05')
+    ]
+  }
+])
